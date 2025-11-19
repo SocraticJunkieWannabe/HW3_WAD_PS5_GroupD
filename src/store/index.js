@@ -4,7 +4,7 @@ export default createStore({
   state: {
       postList:[
     {
-        postId: 1,
+        id: 1,
         body: "Debate of the day: Võiga või võita ?",
         author_name: "Jean Dupont",
         create_time : "2025-10-26T18:25:43.511Z",
@@ -13,7 +13,7 @@ export default createStore({
         img: ""
     },
     {
-        postId: 2,
+        id: 2,
         body: "Bunch of bricks nothing much...",
         author_name: "Jean Doe",
         create_time : "2025-10-26T18:25:43.511Z",
@@ -22,7 +22,7 @@ export default createStore({
         img: "imgs/posts_media/cathedral.jpg"
     },
     {
-        postId: 3,
+        id: 3,
         body: "New year not new me :(",
         author_name: "Jeanne Dupont",
         create_time : "2025-10-26T18:25:43.511Z",
@@ -31,7 +31,7 @@ export default createStore({
         img: "imgs/posts_media/ulikool.jpeg"
     },
     {
-        postId: 4,
+        id: 4,
         body: "Slava Urkaini",
         author_name: "Jean Doe",
         create_time : "2025-10-26T18:25:43.511Z",
@@ -40,7 +40,7 @@ export default createStore({
         img: "imgs/posts_media/bridge.jpeg"
     },
     {
-        postId: 5,
+        id: 5,
         body: "Anyone got milk, I just ran out ...",
         author_name: "John Doe",
         create_time : "2025-10-26T18:25:43.511Z",
@@ -49,7 +49,7 @@ export default createStore({
         img: ""
     },
     {
-        postId: 6,
+        id: 6,
         body: "Party Tonight at Moku @20h00",
         author_name: "Jean Doe",
         create_time : "2025-10-26T18:25:43.511Z",
@@ -58,7 +58,7 @@ export default createStore({
         img: "imgs/posts_media/city_center.jpeg"
     },
     {
-        postId: 7,
+        id: 7,
         body: "World Hello",
         author_name: "Jean Dupont",
         create_time : "2025-10-26T18:25:43.511Z",
@@ -67,7 +67,7 @@ export default createStore({
         img: "imgs/posts_media/bridge.jpeg"
     },
     {
-        postId: 8,
+        id: 8,
         body: "Yee Haw",
         author_name: "Jeanne Dupont",
         create_time : "2025-10-26T18:25:43.511Z",
@@ -76,7 +76,7 @@ export default createStore({
         img: ""
     },
     {
-        postId: 9,
+        id: 9,
         body: "Tere Tere !",
         author_name: "Jean Dupont",
         create_time : "2025-10-26T18:25:43.511Z",
@@ -85,7 +85,7 @@ export default createStore({
         img: ""
     },
     {
-        postId: 10,
+        id: 10,
         body: "Hello World",
         author_name: "John Doe",
         create_time : "2025-10-26T18:25:43.511Z",
@@ -96,6 +96,20 @@ export default createStore({
       ]
   },
   getters: {
+      postList: state => {
+          var postList = state.postList.map(post => {
+              return {
+                  id: post.id,
+                  author: post.author_name,
+                  timestamp: post.create_time,
+                  book: post.body,
+                  likes: post.likes,
+                  image: post.img,
+                  profile_picture: post.profile_picture
+              }
+          });
+          return postList
+      },
   },
   mutations: {
     IncreaseLikes: state => {
