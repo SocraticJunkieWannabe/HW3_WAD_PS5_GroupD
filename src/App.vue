@@ -1,7 +1,7 @@
 <template>
   <!--Header and Footer there-->
   <header-compo></header-compo> 
-  <!--<footer-compo></footer-compo>-->
+  <footer-compo></footer-compo>
 </template>
 
 <script>
@@ -37,4 +37,18 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+body {
+
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+  padding: 0;
+  
+  overflow-x: hidden; /* hide horizontal scroll */
+
+  min-height: 100vh;
+}
+
 </style>
