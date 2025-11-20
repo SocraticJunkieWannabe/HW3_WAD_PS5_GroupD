@@ -102,7 +102,7 @@ export default createStore({
                   id: post.id,
                   author: post.author_name,
                   timestamp: post.create_time,
-                  book: post.body,
+                  body: post.body,
                   likes: post.likes,
                   image: post.img,
                   profile_picture: post.profile_picture
