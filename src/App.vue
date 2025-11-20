@@ -1,10 +1,20 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <!--Header and Footer there-->
+  <header-compo></header-compo> 
+  <!--<footer-compo></footer-compo>-->
 </template>
+
+<script>
+import HeaderCompo from "@/components/Header.vue";
+import FooterCompo from "@/components/Footer.vue";
+
+export default {
+name: "App",
+components: { HeaderCompo, FooterCompo},
+
+}
+
+</script>
 
 <style>
 #app {

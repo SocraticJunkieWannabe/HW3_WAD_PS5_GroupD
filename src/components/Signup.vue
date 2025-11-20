@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Header />
-
     <main>
       <div class="form-section">
         <!-- Login Form -->
@@ -41,8 +39,6 @@
         <button v-if="currentForm === 'login'" @click="showForgotPassword" id="forgot-password-button">Forgot password ?</button>
       </div>
     </main>
-    
-    <Footer />
   </div>
 </template>
 
@@ -53,8 +49,6 @@ import Footer from './Footer.vue'
 export default {
   name: 'Signup',
   components: {
-    Header,
-    Footer
   },
 
   data() {
