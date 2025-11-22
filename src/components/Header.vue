@@ -6,7 +6,6 @@
       <router-link to="/signup">Sign Up</router-link>
     </div>
   </nav>
-  <router-view/>
 </template>
 
 <script>

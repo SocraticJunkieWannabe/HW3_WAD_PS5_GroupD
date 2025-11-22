@@ -26,5 +26,10 @@ export default {
 .resetButton {
   margin-top: 75px;
   border-radius: 30px;
+  width: fit-content;
+  padding: 10px 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

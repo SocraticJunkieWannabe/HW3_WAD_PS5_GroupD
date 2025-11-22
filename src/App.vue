@@ -1,6 +1,7 @@
 <template>
   <!--Header and Footer there-->
-  <header-compo></header-compo> 
+  <header-compo></header-compo>
+  <router-view class="main-content" />
   <footer-compo></footer-compo>
 </template>
 
@@ -17,12 +18,25 @@ components: { HeaderCompo, FooterCompo},
 </script>
 
 <style>
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
 }
 
 nav {
@@ -36,19 +50,6 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #42b983;
-}
-
-body {
-
-  display: flex;
-  flex-direction: column;
-
-  margin: 0;
-  padding: 0;
-  
-  overflow-x: hidden; /* hide horizontal scroll */
-
-  min-height: 100vh;
 }
 
 </style>
