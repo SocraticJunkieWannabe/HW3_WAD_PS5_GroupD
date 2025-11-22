@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Header />
-
     <!-- Usage of V-if to conditionally render forms and bubbles-->
 
     <!-- Usage of V- model in order to link the user input from the input field
@@ -73,14 +71,9 @@
         <button v-if="currentForm === 'login'" @click="showForgotPassword" id="forgot-password-button">Forgot password ?</button>
       </div>
     </main>
-    
-    <Footer />
   </div>
 </template>
 <script>
-
-import Header from './Header.vue'
-import Footer from './Footer.vue'
 
 export default {
   name: 'Signup',
