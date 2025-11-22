@@ -17,7 +17,7 @@
           </div>
 
           <div class="post-footer">
-              <input type="image" :src="likeImg" width="50" height="50"> 
+              <input type="image" :src="likeImg" width="50" height="50" @click="increaseLikes"> 
               <p class="likes">{{post.likes}}</p>
           </div>
       </div>
@@ -43,6 +43,9 @@ export default {
         return require(`@/assets/${filename}`);
       }
       return "";
+    },
+    increaseLikes(){
+      this.$store.dispatch("IncreaseLikesAct")
     }
   },
   data() {
