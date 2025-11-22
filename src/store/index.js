@@ -112,9 +112,10 @@ export default createStore({
       },
   },
   mutations: {
-    IncreaseLikes: state => {
-      state.postList.forEach(product => {
-          product.likes += 1;
+    IncreaseLikes: (state, postId) => {
+      state.postList.forEach(post => {
+            if (post.id == postId)
+                post.likes += 1; 
         })
     },
     ResetLikes: state => {
@@ -124,9 +125,9 @@ export default createStore({
     }
   },
   actions: {
-    IncreaseLikesAct: act => {
+    IncreaseLikesAct: (act, postId) => {
         setTimeout(function() {
-            act.commit("IncreaseLikes")
+            act.commit("IncreaseLikes", postId)
         }, 100)
     },
     ResetLikesAct: act => {

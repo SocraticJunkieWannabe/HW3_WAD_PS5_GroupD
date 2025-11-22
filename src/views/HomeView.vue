@@ -1,6 +1,6 @@
 <template>
   <posts-compo></posts-compo>
-  <button class="resestButton" v-on:click="ResetLikes"> Resest likes </button>
+  <button class="resetButton" v-on:click="ResetLikes"> Reset likes </button>
 </template>
 
 <script>
@@ -21,3 +21,10 @@ export default {
 
 }
 </script>
+
+<style scoped>
+.resetButton {
+  margin-top: 75px;
+  border-radius: 30px;
+}
+</style>
