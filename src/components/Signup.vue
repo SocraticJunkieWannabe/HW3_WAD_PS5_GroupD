@@ -208,6 +208,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+/* Root container - sticky footer layout */
+
+
 h3 {
   margin: 40px 0 0;
 }
@@ -224,6 +228,7 @@ a {
 }
 
 .inputs-wrapper {
+
   background-color: #f5f5f5;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -257,6 +262,19 @@ a {
   z-index: 10;
 }
 
+/* Arrow point attached to the error bubble */
+.error-bubble::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-right: 6px solid #ff6b6b;
+}
 
 /* Styling of the individual error items */
 .error-item {
@@ -272,17 +290,5 @@ a {
 }
 
 
-/* Arrow point attached to the error bubble */
-.error-bubble::before {
-  content: '';
-  position: absolute;
-  left: -6px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-right: 6px solid #ff6b6b;
-}
+
 </style>
