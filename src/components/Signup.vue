@@ -2,6 +2,10 @@
   <div>
     <Header />
 
+    <!-- Usage of V-if to conditionally render forms and bubbles-->
+
+    <!-- Usage of V- model in order to link the user input from the input field
+     to a variable updated in real-time -->
     <main>
       <div class="form-section">
         <!-- Login Form -->
@@ -24,6 +28,7 @@
             
             <div class="input-container">
               <input v-model="regEmail" type="email" placeholder="Email" required autofocus>
+
               <div v-if="regEmail && !isEmailValid" class="error-bubble">
                 {{ emailErrorMessage }}
               </div>
@@ -32,7 +37,9 @@
 
             <div class="input-container">
               <input v-model="regPassword" type="password" placeholder="Password" required>
+
               <div v-if="regPassword && passwordErrors.length > 0" class="error-bubble">
+                <!-- Iterative display of password errors -->
                 <div v-for="(error, index) in passwordErrors" :key="index" class="error-item">
                   {{ error }}
                 </div>
@@ -113,7 +120,7 @@ export default {
       return '';
     },
 
-    
+    // Validation of password using previously acquired input field data and homework requirements
     passwordErrors() {
       const errors = [];
       
@@ -150,8 +157,9 @@ export default {
       return this.regPassword === this.regConfirmPassword;
     },
 
-
+// Validation of registration used to enable/disable the register button
     isRegistrationValid() {
+
       return this.isEmailValid && 
              this.regPassword.trim() !== '' && 
              this.regPassword.length >= 8 &&
@@ -164,6 +172,10 @@ export default {
              this.passwordsMatch;
     }
   },
+
+  // Methods 
+  // used to change the displayed form and 
+  // redirection to index page when submitting the form (logging in and registering)
   methods: {
     showLoginForm() {
       this.currentForm = 'login';
@@ -175,20 +187,20 @@ export default {
       this.currentForm = 'forgot';
     },
     handleLogin() {
-      // Handle login logic
+     
       window.location.href = 'index.html';
     },
     handleRegister() {
-      // Handle registration logic
+      
       window.location.href = 'index.html';
     },
     handleResetPassword() {
-      // Handle reset password logic
+      
       this.showLoginForm();
     }
   },
   mounted() {
-    // Component is mounted and ready
+   
   }
 }
 </script>
@@ -234,6 +246,8 @@ a {
   z-index: 10;
 }
 
+
+/* Styling of the individual error items */
 .error-item {
   margin: 2px 0;
 }
