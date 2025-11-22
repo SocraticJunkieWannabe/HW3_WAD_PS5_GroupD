@@ -17,7 +17,6 @@ export default {
 
 <style scoped>
 .signup-page {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
