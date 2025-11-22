@@ -32,8 +32,10 @@
 
             <div class="input-container">
               <input v-model="regPassword" type="password" placeholder="Password" required>
-              <div v-if="regPassword && passwordErrorMessage !== ''" class="error-bubble">
-                {{ passwordErrorMessage }}
+              <div v-if="regPassword && passwordErrors.length > 0" class="error-bubble">
+                <div v-for="(error, index) in passwordErrors" :key="index" class="error-item">
+                  {{ error }}
+                </div>
               </div>
             </div>
 
@@ -112,32 +114,36 @@ export default {
     },
 
     
-    passwordErrorMessage() {
+    passwordErrors() {
+      const errors = [];
+      
       if (this.regPassword.trim() === '') {
-        return '';
+        return errors;
+      }
+      
+      if (!/^[A-Z]/.test(this.regPassword)) {
+        errors.push('Must start with an uppercase letter');
       }
       if (this.regPassword.length < 8) {
-        return 'Password must be at least 8 characters';
+        errors.push('Must be at least 8 characters');
       }
       if (this.regPassword.length > 15) {
-        return 'Password must be no more than 15 characters';
-      }
-      if (!this.regPassword.includes('_')) {
-        return 'Password must contain an underscore (_)';
+        errors.push('Must be no more than 15 characters');
       }
       if (!/[A-Z]/.test(this.regPassword)) {
-        return 'Password must contain at least one uppercase letter';
+        errors.push('Must contain at least one uppercase letter');
       }
       if ((this.regPassword.match(/[a-z]/g) || []).length < 2) {
-        return 'Password must contain at least 2 lowercase letters';
+        errors.push('Must contain at least 2 lowercase letters');
       }
       if (!/\d/.test(this.regPassword)) {
-        return 'Password must contain at least one number';
+        errors.push('Must contain at least one number');
       }
-      if (!/^[A-Z]/.test(this.regPassword)) {
-        return 'Password must start with an uppercase letter';
+      if (!this.regPassword.includes('_')) {
+        errors.push('Must contain an underscore (_)');
       }
-      return '';
+      
+      return errors;
     },
 
     passwordsMatch() {
@@ -226,6 +232,18 @@ a {
   white-space: nowrap;
   box-shadow: 0 2px 8px rgba(251, 246, 246, 0.15);
   z-index: 10;
+}
+
+.error-item {
+  margin: 2px 0;
+}
+
+.error-item:first-child {
+  margin-top: 0;
+}
+
+.error-item:last-child {
+  margin-bottom: 0;
 }
 
 
