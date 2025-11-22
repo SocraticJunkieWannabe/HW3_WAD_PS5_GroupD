@@ -25,31 +25,32 @@
           <h2>Register</h2>
           <div>
 
-            
-            <div class="input-container">
-              <input v-model="regEmail" type="email" placeholder="Email" required autofocus>
+            <div class="inputs-wrapper">
+              <div class="input-container">
+                <input v-model="regEmail" type="email" placeholder="Email" required autofocus>
 
-              <div v-if="regEmail && !isEmailValid" class="error-bubble">
-                {{ emailErrorMessage }}
-              </div>
-            </div>
-
-
-            <div class="input-container">
-              <input v-model="regPassword" type="password" placeholder="Password" required>
-
-              <div v-if="regPassword && passwordErrors.length > 0" class="error-bubble">
-                <!-- Iterative display of password errors -->
-                <div v-for="(error, index) in passwordErrors" :key="index" class="error-item">
-                  {{ error }}
+                <div v-if="regEmail && !isEmailValid" class="error-bubble">
+                  {{ emailErrorMessage }}
                 </div>
               </div>
-            </div>
 
-            <div class="input-container">
-              <input v-model="regConfirmPassword" type="password" placeholder="Confirm Password" required>
-              <div v-if="regConfirmPassword && !passwordsMatch" class="error-bubble">
-                Passwords do not match
+
+              <div class="input-container">
+                <input v-model="regPassword" type="password" placeholder="Password" required>
+
+                <div v-if="regPassword && passwordErrors.length > 0" class="error-bubble">
+                  <!-- Iterative display of password errors -->
+                  <div v-for="(error, index) in passwordErrors" :key="index" class="error-item">
+                    {{ error }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-container">
+                <input v-model="regConfirmPassword" type="password" placeholder="Confirm Password" required>
+                <div v-if="regConfirmPassword && !passwordsMatch" class="error-bubble">
+                  Passwords do not match
+                </div>
               </div>
             </div>
           </div>
@@ -222,12 +223,22 @@ a {
   color: #42b983;
 }
 
+.inputs-wrapper {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px auto;
+  width: fit-content;
+}
+
 .input-container {
   position: relative;
   margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
   display: block;
   width: fit-content;
-  left: 43.5%;
 }
 
 .error-bubble {
