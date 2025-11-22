@@ -3,25 +3,8 @@
     <div class="navbar-left">
       <router-link to="/">Home</router-link>
       <li> | </li>
-      <router-link to="/post">Post</router-link>
+      <router-link to="/signup">Sign Up</router-link>
     </div>
-  
-
-    <div class="navbar-right">
-        <div class="dropdown-container">
-
-            <button class="dropButton" id="dropButton"> 
-              <img src="../assets/imgs/blank_profile.webp" alt="Blank Profile" width="50" height="50"> 
-            </button>
-
-            <div class="dropdown-menu" id="dropdownMenu">
-                <a id="dropdownUsername">Username</a>
-                <a id="dropdownEmail">Email</a>
-                <router-link to="/signup">Sign Up</router-link>
-            </div>
-
-        </div>      
-      </div>
   </nav>
   <router-view/>
 </template>
@@ -51,7 +34,7 @@ export default {
 /* navigation */
 nav {
   display: flex;
-  justify-content: space-between; /* pushes items to edges */
+  justify-content: center; /* pushes items to edges */
   background-color: var(--pale-dogwood, #b6b5b5);
   padding: 30px;
   position: sticky;   /* sticks to top when scrolling */

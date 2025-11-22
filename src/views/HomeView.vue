@@ -1,6 +1,6 @@
 <template>
   <posts-compo></posts-compo>
-
+  <button class="resestButton" v-on:click="ResetLikes"> Resest likes </button>
 </template>
 
 <script>
@@ -14,9 +14,6 @@ export default {
   },
 
   methods: {
-    IncreaseLikes: function() {
-        this.$store.dispatch("IncreaseLikesAct")
-    },
     ResetLikes: function() {
         this.$store.dispatch("ResetLikesAct") 
     }
